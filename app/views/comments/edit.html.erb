@@ -1,0 +1,5 @@
+<h2>Edit Your Comment</h2>
+<%= simple_form_for([@message, @comment]) do |f| %>
+  <%= f.input :content, label: "Comments", input_html: { rows: "5" } %>
+  <%= f.button :submit %>
+<% end %>
