@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+
   def create
     @message = Message.find(params[:message_id])
     @comment = @message.comments.create(comment_params)

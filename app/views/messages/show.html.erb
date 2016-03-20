@@ -1,9 +1,21 @@
 <div class="col-md-10 col-md-offset-1">
   <div class="message-show">
     <h2><%= @message.title %></h2>
+    <p>Created by <%= @message.user.email %></p>
     <p class="message-posted-by"><%= time_ago_in_words(@message.created_at) %> ago</p>
     <p class="message-desc"><%= @message.description %></p>
     <br>
+
+    <h3 class="comment-section-header">Discussions:</h3>
+    <p><%= render @message.comments %></p>
+
+    <br>
+
+    <h4 class="reply-to-msg">Any Thoughts?</h4>
+    <%= render 'comments/form' %>
+
+    <br>
+
     <div class="links btn-group">
       <%= link_to "Back", root_path, class: "btn btn-default" %>
       <%= link_to "Fix", edit_message_path(@message), class: "btn btn-primary" %>
